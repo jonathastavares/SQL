@@ -6,7 +6,7 @@ SELECT name, population FROM world WHERE population BETWEEN 1000000 AND 1250000;
 
 /* 2 */
 
-/* Table - E */
+/* Alternative E */
 
 /* 3 */
 
@@ -14,7 +14,7 @@ SELECT name FROM world WHERE name LIKE '%a' OR name LIKE '%l'
 
 /* 4 */
 
-/* Table - C */
+/* Alternative C */
 
 /* 5 */
 
@@ -46,16 +46,19 @@ SELECT population FROM 'United Kingdom'
 
 /* 4 */
 
-
+/* Alternative D */
 
 /* 5 */
 
+SELECT name, population FROM world WHERE continent IN ('Europe', 'Asia')
 
 /* 6 */
 
+SELECT name FROM world WHERE name IN ('Cuba', 'Togo')
 
 /* 7 */
 
+/* Alternative C */
 
 /*----------------------------------------------------------------------------*/
 
