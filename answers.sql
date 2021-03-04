@@ -222,7 +222,7 @@ SELECT DISTINCT player, teamid, gtime FROM game JOIN goal ON matchid = id WHERE 
 
 /*----------------------------------------------------------------------------*/
 
-/* JOIN Quiz */
+/* JOIN Quiz 2 */
 
 /* 1 */
 
@@ -251,3 +251,31 @@ SELECT name FROM movie JOIN casting ON movie.id = movieid JOIN actor ON actor.id
 /* 7 */
 
 /* Alternative - B */
+
+/*----------------------------------------------------------------------------*/
+
+/* NULL quiz */
+
+/* 1 */
+
+SELECT teacher.name, dept.name FROM teacher LEFT OUTER JOIN dept ON (teacher.dept = dept.id)
+
+/* 2 */
+
+SELECT dept.name FROM teacher JOIN dept ON (dept.id = teacher.dept) WHERE teacher.name = 'Cutflower'
+
+/* 3 */
+
+SELECT dept.name, COUNT(teacher.name) FROM teacher RIGHT JOIN dept ON dept.id = teacher.dept GROUP BY dept.name
+
+/* 4 */
+
+/* Alternative - B */
+
+/* 5 */
+
+/* Alternative - A */
+
+/* 6 */
+
+/* Alternative - A */
