@@ -219,3 +219,35 @@ SELECT DISTINCT player, teamid, gtime FROM game JOIN goal ON matchid = id WHERE 
 /* 7 */
 
 /* Alternative - B */
+
+/*----------------------------------------------------------------------------*/
+
+/* JOIN Quiz */
+
+/* 1 */
+
+SELECT name FROM actor INNER JOIN movie ON actor.id = director WHERE gross < budget
+
+/* 2 */
+
+SELECT * FROM actor JOIN casting ON actor.id = actorid JOIN movie ON movie.id = movieid
+
+/* 3 */
+
+SELECT name, COUNT(movieid) FROM casting JOIN actor ON actorid=actor.id WHERE name LIKE 'John %' GROUP BY name ORDER BY 2 DESC
+
+/* 4 */
+
+/* Alternative - B */
+
+/* 5 */
+
+SELECT name FROM movie JOIN casting ON movie.id = movieid JOIN actor ON actor.id = actorid WHERE ord = 1 AND director = 351
+
+/* 6 */
+
+/* Alternative - C */
+
+/* 7 */
+
+/* Alternative - B */
