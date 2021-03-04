@@ -123,3 +123,35 @@ SELECT name FROM bbc WHERE population < (SELECT population FROM bbc WHERE name='
 /* 7 */
 
 /* Alternative - B */
+
+/*----------------------------------------------------------------------------*/
+
+/* SUM and COUNT Quiz */
+
+/* 1 */
+
+SELECT SUM(population) FROM bbc WHERE region = 'Europe'
+
+/* 2 */
+
+SELECT COUNT(name) FROM bbc WHERE population < 150000
+
+/* 3 */
+
+/* Alternative - D */
+
+/* 4 */
+
+/* Alternative - E */
+
+/* 5 */
+
+SELECT AVG(population) FROM bbc WHERE name IN ('Poland', 'Germany', 'Denmark')
+
+/* 6 */
+
+SELECT region, SUM(population)/SUM(area) AS density FROM bbc GROUP BY region
+
+/* 7 */
+
+SELECT name, population/area AS density FROM bbc WHERE population = (SELECT MAX(population) FROM bbc)
