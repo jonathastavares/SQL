@@ -155,3 +155,67 @@ SELECT region, SUM(population)/SUM(area) AS density FROM bbc GROUP BY region
 /* 7 */
 
 SELECT name, population/area AS density FROM bbc WHERE population = (SELECT MAX(population) FROM bbc)
+
+/*----------------------------------------------------------------------------*/
+
+/* NESTED SELECT Quiz */
+
+/* 1 */
+
+SELECT region, name, population FROM bbc x WHERE population <= ALL (SELECT population FROM bbc y WHERE y.region=x.region AND population>0)
+
+/* 2 */
+
+SELECT name,region,population FROM bbc x WHERE 50000 < ALL (SELECT population FROM bbc y WHERE x.region=y.region AND y.population>0)
+
+/* 3 */
+
+SELECT name, region FROM bbc x WHERE population < ALL (SELECT population/3 FROM bbc y WHERE y.region = x.region AND y.name != x.name)
+
+/* 4 */
+
+/* Alternative - D */
+
+/* 5 */
+
+SELECT name FROM bbc WHERE gdp > (SELECT MAX(gdp) FROM bbc WHERE region = 'Africa')
+
+/* 6 */
+
+SELECT name FROM bbc WHERE population < (SELECT population FROM bbc WHERE name='Russia') AND population > (SELECT population FROM bbc WHERE name='Denmark')
+
+/* 7 */
+
+/* Alternative - B */
+
+/*----------------------------------------------------------------------------*/
+
+/* JOIN Quiz */
+
+/* 1 */
+
+/* Alternative - D */
+
+/* 2 */
+
+/* Alternative - C */
+
+/* 3 */
+
+SELECT player, teamid, COUNT(*) FROM game JOIN goal ON matchid = id WHERE (team1 = "GRE" OR team2 = "GRE") AND teamid != 'GRE' GROUP BY player, teamid
+
+/* 4 */
+
+/* Alternative - A */
+
+/* 5 */
+
+SELECT DISTINCT player, teamid FROM game JOIN goal ON matchid = id WHERE stadium = 'National Stadium, Warsaw' AND (team1 = 'POL' OR team2 = 'POL') AND teamid != 'POL'
+
+/* 6 */
+
+SELECT DISTINCT player, teamid, gtime FROM game JOIN goal ON matchid = id WHERE stadium = 'Stadion Miejski (Wroclaw)' AND (( teamid = team2 AND team1 != 'ITA') OR ( teamid = team1 AND team2 != 'ITA'))
+
+/* 7 */
+
+/* Alternative - B */
